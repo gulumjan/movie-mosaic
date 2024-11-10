@@ -15,7 +15,7 @@ const baseQuery = fetchBaseQuery({
   },
 });
 const myBaseQuery = fetchBaseQuery({
-  baseUrl: `http://localhost:3000`,
+  baseUrl: `https://movie-mosaic-xi.vercel.app`,
 });
 
 const baseQueryExtended: BaseQueryFn = async (args, api, extraOptions) => {
