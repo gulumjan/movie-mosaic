@@ -1,3 +1,25 @@
+interface ICollection {
+  id: number;
+  name: string;
+  poster_path?: string;
+  backdrop_path?: string;
+}
+
+interface IEpisode {
+  id: number;
+  name: string;
+  overview: string;
+  vote_average: number;
+  vote_count: number;
+  air_date: string;
+  episode_number: number;
+  production_code: string;
+  runtime: number;
+  season_number: number;
+  show_id: number;
+  still_path: string;
+}
+
 interface IUpcoming {
   dates: {
     maximum: string;
@@ -125,7 +147,7 @@ interface IDiscoverMovie {
 interface iDetails {
   adult: boolean;
   backdrop_path: string;
-  belongs_to_collection: any;
+  belongs_to_collection: ICollection | null;
   budget: number;
   genres: Array<{
     id: number;
@@ -198,6 +220,7 @@ interface ICredits {
     job: string;
   }>;
 }
+
 interface IOfficialVideo {
   id: number;
   results: Array<{
@@ -279,22 +302,9 @@ interface ITvDetails {
   in_production: boolean;
   languages: Array<string>;
   last_air_date: string;
-  last_episode_to_air: {
-    id: number;
-    name: string;
-    overview: string;
-    vote_average: number;
-    vote_count: number;
-    air_date: string;
-    episode_number: number;
-    production_code: string;
-    runtime: number;
-    season_number: number;
-    show_id: number;
-    still_path: string;
-  };
+  last_episode_to_air: IEpisode;
   name: string;
-  next_episode_to_air: any;
+  next_episode_to_air: IEpisode | null;
   networks: Array<{
     id: number;
     logo_path: string;
@@ -343,7 +353,7 @@ interface ITvDetails {
 
 interface ISearchCollections {
   page: number;
-  results: Array<any>;
+  results: Array<ICollection>;
   total_pages: number;
   total_results: number;
 }
@@ -367,5 +377,17 @@ interface ITrailer {
 interface IFavourite {
   title: string;
   poster_path: string;
-  release_date;
+  release_date: string;
+}
+
+interface User {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  photo: string;
+  createdAt: Date;
+  updatedAt: Date;
+  favourites: Array<IFavourite>;
 }

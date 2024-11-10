@@ -57,6 +57,14 @@
         .releaseDate {
           font-size: 14px;
           color: #b3b3b3;
+          padding: 8px;
+        }
+        button {
+          padding: 10px 20px;
+          border: none;
+          outline: none;
+          background: darkblue;
+          border-radius: 12px;
         }
       }
     }
@@ -67,7 +75,10 @@
     .content h2 {
       font-size: 20px;
     }
-
+    .movieGrid {
+      display: flex;
+      flex-wrap: wrap;
+    }
     .movieCard .details .title {
       font-size: 14px;
     }
@@ -75,5 +86,39 @@
     .movieCard .details .releaseDate {
       font-size: 12px;
     }
+  }
+}
+
+// Loader Styles
+$loader-color: #01b4e4; // Primary color for loader
+$loader-size: 40px;
+$loader-duration: 1.2s;
+
+// Loader container for centering
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+// Loader Animation
+.loader {
+  border: $loader-size solid transparent;
+  border-top: $loader-size solid $loader-color;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin $loader-duration infinite linear;
+  margin: 0 auto;
+}
+
+// Spin animation for loader
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

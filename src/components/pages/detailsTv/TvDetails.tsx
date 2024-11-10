@@ -71,7 +71,8 @@ const TvDetails: FC = () => {
             </div>
 
             <div className={scss.play}>
-              <Rating rating={tvDetails?.vote_average} />
+              <Rating rating={tvDetails?.vote_average ?? 0} />{" "}
+              {/* Safe default value */}
               <AiOutlinePlayCircle
                 onClick={() => {
                   if (tvTrailer?.result && tvTrailer.result.length > 0) {

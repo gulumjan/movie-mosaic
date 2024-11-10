@@ -34,17 +34,17 @@ export const POST = async () => {
       data: {
         email: session.user.email,
         firstName: firstName || "Unknown",
-        lastName: lastName || "", // Corrected to match Prisma schema
+        lastName: lastName || "",
         photo: session.user.image || "",
         password: "",
       },
     });
 
     return NextResponse.json(data, { status: 201 });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error during sign-in:", error);
     return NextResponse.json(
-      { message: `Error during sign-in: ${error.message}` },
+      { message: `Error during sign-in: ${error}` },
       { status: 500 }
     );
   }

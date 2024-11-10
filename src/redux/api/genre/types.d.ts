@@ -22,5 +22,14 @@ namespace GENRE {
     posterPath: string;
     release_date: string | null;
   }[];
-  type GetFavouriteMovieRequest = void;
+  type GetFavouriteMovieRequest = number;
+
+  type DeleteFavouriteMovieRequest = {
+    movieId: number;
+  };
+
+  type DeleteFavouriteMovieResponse = {
+    message: string;
+    count?: number;
+  };
 }

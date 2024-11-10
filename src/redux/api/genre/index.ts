@@ -33,6 +33,32 @@ const api = index.injectEndpoints({
       }),
       invalidatesTags: ["favourites"],
     }),
+    checkFavourite: builder.query({
+      query: ({ userId, movieId }) => ({
+        url: "/api/check-fav",
+        method: "POST",
+        body: { userId, movieId },
+      }),
+      providesTags: ["favourites"],
+    }),
+    getUser: builder.query<User, void>({
+      query: () => ({
+        url: "/api/v2/get-user",
+        method: "GET",
+      }),
+      providesTags: ["auth"],
+    }),
+    deleteFavouriteProduct: builder.mutation<
+      GENRE.DeleteFavouriteMovieResponse,
+      GENRE.DeleteFavouriteMovieRequest
+    >({
+      query: ({ movieId }) => ({
+        url: `/api/fav-delete`,
+        method: "DELETE",
+        body: { movieId },
+      }),
+      invalidatesTags: ["favourites"],
+    }),
   }),
 });
 
@@ -40,4 +66,7 @@ export const {
   useGetGenreListQuery,
   useGetFavouritesQuery,
   useSendFavouriteMutation,
+  useCheckFavouriteQuery,
+  useGetUserQuery,
+  useDeleteFavouriteProductMutation,
 } = api;

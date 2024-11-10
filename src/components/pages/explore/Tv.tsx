@@ -5,6 +5,14 @@ import { useGetGenreListQuery } from "@/redux/api/genre";
 import { useGetDiscoverTvQuery } from "@/redux/api/discover";
 import { useRouter } from "next/navigation";
 
+type TvShow = {
+  id: number;
+  poster_path?: string;
+  title?: string;
+  name?: string;
+  first_air_date?: string;
+};
+
 const Tv = () => {
   const sortOptions = [
     { label: "Popularity Descending", value: "popularity.desc" },
@@ -58,7 +66,7 @@ const Tv = () => {
                   </option>
                 )}
                 {!loadingGenres &&
-                  genresData?.genres?.map((genre: any) => (
+                  genresData?.genres?.map((genre) => (
                     <option key={genre.id} value={genre.id}>
                       {genre.name}
                     </option>
@@ -82,7 +90,7 @@ const Tv = () => {
             {loadingTvShows ? (
               <p>Loading TV shows...</p>
             ) : (
-              tvShowsData?.results?.map((tvShow: any) => (
+              tvShowsData?.results?.map((tvShow: TvShow) => (
                 <div
                   onClick={() => router.push(`/tv/${tvShow.id}`)}
                   className={scss.card}
@@ -90,16 +98,17 @@ const Tv = () => {
                 >
                   <img
                     src={
-                      `https://image.tmdb.org/t/p/original${tvShow.poster_path}` ||
-                      "https://clipart-library.com/newhp/150-1502107_movies-vector-slate-film-slate-no-background.png"
+                      tvShow.poster_path
+                        ? `https://image.tmdb.org/t/p/original${tvShow.poster_path}`
+                        : "https://clipart-library.com/newhp/150-1502107_movies-vector-slate-film-slate-no-background.png"
                     }
-                    alt={tvShow.title || tvShow.name}
+                    alt={tvShow.title || tvShow.name || "TV Show"}
                   />
                   <p>{tvShow.title || tvShow.name}</p>
                   <h6>
-                    {new Date(
-                      tvShow.first_air_date || tvShow
-                    ).toLocaleDateString()}
+                    {tvShow.first_air_date
+                      ? new Date(tvShow.first_air_date).toLocaleDateString()
+                      : "Unknown Release Date"}
                   </h6>
                 </div>
               ))

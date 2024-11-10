@@ -60,7 +60,9 @@ const Header = () => {
         <div className={scss.content}>
           <div className={scss.left}>
             <div className={scss.logo}>
-              <img
+              <Image
+                width={50}
+                height={50}
                 onClick={() => router.push("/")}
                 src="https://cdn.icon-icons.com/icons2/1381/PNG/512/popcorntime_94336.png"
                 alt=""
@@ -90,10 +92,6 @@ const Header = () => {
                     <IoSearchOutline className={scss.search} />
                     {session ? (
                       <>
-                        <CiHeart
-                          style={{ fontSize: "22px" }}
-                          onClick={() => router.push(`/favourite`)}
-                        />
                         <Image
                           width={30}
                           height={30}

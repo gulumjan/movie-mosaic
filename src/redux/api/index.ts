@@ -14,10 +14,23 @@ const baseQuery = fetchBaseQuery({
     return headers;
   },
 });
+const myBaseQuery = fetchBaseQuery({
+  baseUrl: `http://localhost:3000`,
+});
 
 const baseQueryExtended: BaseQueryFn = async (args, api, extraOptions) => {
-  const result = await baseQuery(args, api, extraOptions);
-  return result;
+  if (
+    args.url.startsWith(`/api/favourite`) |
+    args.url.startsWith(`/api/get-favourite`) |
+    args.url.startsWith(`/api/check-fav`) |
+    args.url.startsWith(`/api/v2/get-user`) |
+    args.url.startsWith(`/api/fav-delete`)
+  ) {
+    return myBaseQuery(args, api, extraOptions);
+  } else {
+    const result = await baseQuery(args, api, extraOptions);
+    return result;
+  }
 };
 
 export const api = createApi({
@@ -37,6 +50,7 @@ export const api = createApi({
     "search_collection",
     "trailers",
     "favourites",
+    "auth",
   ],
   endpoints: () => ({}),
 });

@@ -7,4 +7,8 @@ export const links = [
     name: "Tv Show",
     href: "/explore/tv",
   },
+  {
+    name: "Favourites",
+    href: "/favourite",
+  },
 ];

@@ -3,6 +3,7 @@ import { FC, useState, useCallback } from "react";
 import scss from "./SearchResult.module.scss";
 import { useGetSearchCollectionsQuery } from "@/redux/api/search";
 import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
 
 const SearchResults: FC = () => {
   const router = useRouter();
@@ -70,21 +71,19 @@ const SearchResults: FC = () => {
                 className={scss.card}
                 key={item.id}
               >
-                <img
-                  src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                  onError={(e: any) => {
-                    e.target.onerror = null;
-                    e.target.src =
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7LL5QDXtA_-N-B_uSXsemRA7HaEWJSOf26A&s";
-                  }}
-                  alt={item.title || item.name}
+                <Image
+                  src={
+                    item.poster_path
+                      ? `https://image.tmdb.org/t/p/original${item.poster_path}`
+                      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7LL5QDXtA_-N-B_uSXsemRA7HaEWJSOf26A&s"
+                  }
+                  alt={item.name}
+                  width={200}
+                  height={300}
+                  placeholder="blur"
+                  blurDataURL="/path/to/placeholder.jpg"
                 />
-                <p>{item.title || item.name}</p>
-                <h6>
-                  {item.release_date
-                    ? new Date(item.release_date).toLocaleDateString()
-                    : "N/A"}
-                </h6>
+                <p>{item.name || item.name}</p>
               </div>
             ))}
           </div>

@@ -3,6 +3,7 @@ import { FC } from "react";
 import scss from "./SimilarMovies.module.scss";
 import { useParams, useRouter } from "next/navigation";
 import { useGetTvSimilarMoviesQuery } from "@/redux/api/tv_details";
+import Image from "next/image";
 
 const SimilarTv: FC = () => {
   const { tvId } = useParams();
@@ -21,14 +22,11 @@ const SimilarTv: FC = () => {
               className={scss.card}
               key={movie.id}
             >
-              <img
+              <Image
+                width={220}
+                height={340}
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 alt={movie.title}
-                onError={(e: any) => {
-                  e.target.onerror = null;
-                  e.target.src =
-                    "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg";
-                }}
               />
               <p>{movie.title}</p>
             </div>

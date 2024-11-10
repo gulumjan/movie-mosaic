@@ -3,7 +3,7 @@ import { FC } from "react";
 import scss from "./Recommendations.module.scss";
 import { useParams, useRouter } from "next/navigation";
 import { useGetTvRecommendationsQuery } from "@/redux/api/tv_details";
-import { getServerSession } from "next-auth";
+import Image from "next/image";
 
 const RecommendationsTv: FC = () => {
   const { tvId } = useParams();
@@ -23,16 +23,19 @@ const RecommendationsTv: FC = () => {
               className={scss.card}
               key={movie.id}
             >
-              <img
-                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                alt={movie.title}
-                onError={(e: any) => {
-                  e.target.onerror = null;
-                  e.target.src =
-                    "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg";
-                }}
+              <Image
+                src={
+                  movie.poster_path
+                    ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+                    : "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg"
+                }
+                alt={movie.title || "Movie Poster"}
+                width={200} // Adjust the width and height according to your design
+                height={300} // Adjust accordingly
+                placeholder="blur" // Optional: a blur placeholder
+                blurDataURL="/path/to/placeholder.jpg" // Optional: small, low-quality image as a blur placeholder
               />
-              <p>{movie.title}</p>
+              <p>{movie.title || "Untitled"}</p>
             </div>
           ))}
         </div>

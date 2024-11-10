@@ -4,6 +4,7 @@ import scss from "./Movie.module.scss";
 import { useGetGenreListQuery } from "@/redux/api/genre";
 import { useGetDiscoverMovieQuery } from "@/redux/api/discover";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Movie = () => {
   const router = useRouter();
@@ -56,7 +57,7 @@ const Movie = () => {
                   </option>
                 )}
                 {!loadingGenres &&
-                  genresData?.genres?.map((genre: any) => (
+                  genresData?.genres?.map((genre) => (
                     <option key={genre.id} value={genre.id}>
                       {genre.name}
                     </option>
@@ -80,23 +81,23 @@ const Movie = () => {
             {loadingMovies ? (
               <p>Loading movies...</p>
             ) : (
-              moviesData?.results?.map((movie: any) => (
+              moviesData?.results?.map((movie) => (
                 <div
                   onClick={() => router.push(`/movie/${movie.id}`)}
                   className={scss.card}
                   key={movie.id}
                 >
-                  <img
+                  <Image
+                    width={200}
+                    height={200}
                     src={
                       `https://image.tmdb.org/t/p/original${movie.poster_path} ` ||
                       "https://clipart-library.com/newhp/150-1502107_movies-vector-slate-film-slate-no-background.png"
                     }
                     alt={movie.title || movie?.title}
                   />
-                  <p>{movie.title || movie.name}</p>
-                  <h6>
-                    {new Date(movie.release_date || movie).toLocaleDateString()}
-                  </h6>
+                  <p>{movie.title || "Movie Mosaic"}</p>
+                  <h6>{new Date(movie?.release_date).toLocaleDateString()}</h6>
                 </div>
               ))
             )}

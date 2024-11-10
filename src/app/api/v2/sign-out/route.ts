@@ -7,14 +7,14 @@ const prisma = new PrismaClient();
 export const DELETE = async (request: Request) => {
   const session = await getServerSession();
 
-  if (!session) {
+  if (!session || !session.user?.email) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
   try {
     const findUserId = await prisma.user.findFirst({
       where: {
-        email: session.user?.email!,
+        email: session.user.email,
       },
     });
 
