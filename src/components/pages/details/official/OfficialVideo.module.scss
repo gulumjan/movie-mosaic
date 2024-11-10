@@ -1,0 +1,27 @@
+.video_content {
+  margin-top: 50px;
+
+  h2 {
+    font-size: 27px;
+    font-weight: 400;
+  }
+
+  .top_videos {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .videos_block {
+      margin-top: 17px;
+
+      iframe {
+        border-radius: 20px;
+      }
+    }
+  }
+}

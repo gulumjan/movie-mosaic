@@ -1,0 +1,42 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// model Favourite{
+
+// }
+
+model User {
+  id         Int         @id @default(autoincrement())
+  firstName  String
+  lastName   String      @default("")
+  email      String      @unique
+  password   String
+  photo      String
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @default(now())
+  favourites Favourite[] 
+}
+
+model Favourite {
+  id          Int      @id @default(autoincrement())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  movieId     Int   
+  release_date String
+  title       String   
+  posterPath  String 
+  createdAt   DateTime @default(now())
+
+  @@unique([userId, movieId]) 
+}
+
+
+
+

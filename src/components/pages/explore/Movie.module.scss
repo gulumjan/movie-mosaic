@@ -1,0 +1,128 @@
+.Movie {
+  margin-left: 5vw;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  .select {
+    margin: 2vw 0;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      margin-bottom: 1vw;
+      font-size: 4vw;
+      color: #fff;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 1vw;
+
+      select {
+        padding: 1vw;
+        font-size: 3vw;
+        border-radius: 0.5vw;
+        background-color: #1a1a2e;
+        color: white;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+
+        &:hover {
+          background-color: #16213e;
+        }
+
+        option {
+          background-color: #fff;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .moviesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vw;
+    justify-content: center;
+    margin-top: 2vw;
+
+    .card {
+      width: 45%;
+      max-width: 220px;
+      margin-bottom: 1vw;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 1vw;
+      }
+
+      p {
+        font-size: 3vw;
+        text-align: center;
+        margin-top: 0.5vw;
+      }
+
+      h6 {
+        padding: 1vw 0;
+        font-size: 2.5vw;
+        color: rgb(189, 187, 187);
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .Movie {
+    margin-left: 78px;
+
+    .select {
+      flex-direction: row;
+      justify-content: space-between;
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .options {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+
+        select {
+          width: 160px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .moviesList {
+      gap: 15px;
+
+      .card {
+        width: 220px;
+
+        p {
+          font-size: 20px;
+        }
+
+        h6 {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

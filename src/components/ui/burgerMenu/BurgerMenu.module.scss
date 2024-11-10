@@ -1,0 +1,61 @@
+.BurgerMenu {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  background-color: rgba(24, 27, 63, 0.8);
+
+  color: aliceblue;
+  border-radius: 14px;
+  padding: 8px 0;
+  .auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      padding: 7px 0;
+    }
+    .user {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      img {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+      }
+    }
+    button {
+      background: none;
+      border: 1px solid #fff;
+      outline: none;
+      padding: 5px 10px;
+    }
+  }
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .content {
+    .nav {
+      width: 200px;
+      height: auto;
+      text-align: center;
+
+      ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+          list-style: none;
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+}

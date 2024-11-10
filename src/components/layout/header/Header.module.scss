@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kalnia+Glaze:wght@100..700&family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sofadi+One&display=swap");
+
+.Header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 15px 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9px);
+  z-index: 10;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    .left {
+      .logo {
+        display: flex;
+        gap: 9px;
+        img {
+          width: 30px;
+          height: 30px;
+          object-fit: cover;
+        }
+        h1 {
+          font-family: Sofadi One;
+          color: rgb(191, 28, 134);
+        }
+      }
+    }
+
+    .right {
+      .nav {
+        ul {
+          display: flex;
+          gap: 25px;
+          justify-content: center;
+          align-items: center;
+          img {
+            border-radius: 50%;
+          }
+          button {
+            background: none;
+            color: rgb(101, 101, 222);
+            border: none;
+            outline: none;
+          }
+          li {
+            .link {
+              color: #ffffff;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 16px;
+              letter-spacing: 0%;
+              transition: 0.2s;
+
+              &:hover {
+                color: #da2f68;
+              }
+              &.active {
+                color: #da2f68;
+              }
+            }
+          }
+          .search {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

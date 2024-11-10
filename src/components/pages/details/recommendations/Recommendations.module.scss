@@ -1,0 +1,33 @@
+.Recommendations {
+  padding: 20px 0;
+  .cards {
+    display: flex;
+    overflow-x: scroll;
+    gap: 15px;
+    margin-top: 20px;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card {
+      img {
+        width: 220px;
+        height: 340px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+      p {
+        font-size: 25px;
+      }
+      h6 {
+        padding: 10px 0;
+        font-size: 16px;
+        color: rgb(189, 187, 187);
+      }
+    }
+  }
+}

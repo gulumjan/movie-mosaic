@@ -1,0 +1,125 @@
+.Trending {
+  margin-top: 146px;
+  position: relative;
+
+  .content {
+    .metres {
+      .btns {
+        width: 270px;
+        height: 46px;
+        display: flex;
+        background-color: #fff;
+        border-radius: 22px;
+        padding-left: 7px;
+
+        button {
+          border-radius: 22px;
+          padding: 2px 50px;
+          color: #000;
+          border: none;
+          background: none;
+          height: 41px;
+          margin-top: 2px;
+          cursor: pointer; // Adding a pointer to indicate it's clickable
+          transition: background-color 0.3s ease; // Optional: Adds smooth transition for button hover effects
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.1); // Optional: Adds hover effect
+          }
+        }
+
+        .purple {
+          background: linear-gradient(90deg, #f60084 0%, #9c37ff 100%);
+        }
+      }
+    }
+
+    .cards {
+      display: flex;
+      overflow-x: scroll;
+      gap: 15px;
+      margin-top: 20px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .card {
+        img {
+          width: 220px;
+          height: 340px;
+          object-fit: cover;
+          border-radius: 15px;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+
+        p {
+          font-size: 25px;
+          margin: 10px 0 0;
+        }
+
+        h6 {
+          padding: 10px 0;
+          font-size: 16px;
+          color: rgb(189, 187, 187);
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Trending {
+    margin-top: 0;
+    .content {
+      h1 {
+        font-size: 15px;
+      }
+      .metres {
+        display: flex;
+        .btns {
+          width: 214px;
+          height: 30px;
+          button {
+            height: 25px;
+            width: 50px;
+          }
+        }
+      }
+      .cards {
+        .card {
+          img {
+            width: 180px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+
+          p {
+            font-size: 25px;
+            margin: 10px 0 0;
+          }
+
+          h6 {
+            padding: 10px 0;
+            font-size: 16px;
+            color: rgb(189, 187, 187);
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
