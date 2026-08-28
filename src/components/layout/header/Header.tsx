@@ -115,7 +115,7 @@ const Header = () => {
                               signIn();
                             }}
                           >
-                            sign-in
+                            Sign in
                           </button>
                         </div>
                       </>
