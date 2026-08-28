@@ -23,14 +23,18 @@ const Footer = () => {
           <div className={scss.logos}>
             <Link
               href="
-https://www.instagram.com/kabylovnaya?igsh=MXg3dXRqZGI4ZW9mYg=="
+https://www.instagram.com/zakirovadv?igsi=MXg3dXRqZGI4ZW9mYg=="
             >
               <FaInstagram className={scss.logo} />
             </Link>
             <FaDiscord className={scss.logo} />
             <FaVk className={scss.logo} />
-            <FaLinkedin className={scss.logo} />
-            <FaGithub className={scss.logo} />
+            <Link href="https://www.linkedin.com/in/zakirovadev/">
+              <FaLinkedin className={scss.logo} />
+            </Link>
+            <Link href="https://github.com/gulumjan">
+              <FaGithub className={scss.logo} />
+            </Link>
           </div>
         </div>
       </div>
